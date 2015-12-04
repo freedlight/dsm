@@ -1,0 +1,9 @@
+* test param file for DSM
+
+	.IN		tst8080.obj
+	.OUT	tst8085.asm
+	.CPU	8085
+	.PC		$1000
+	.END	$2000
+	.BLKSIZ	30000
+

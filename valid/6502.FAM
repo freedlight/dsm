@@ -1,0 +1,65 @@
+-----------------------
+6502 family differences
+-----------------------
+
+We differentiate 4 families within the 6502 line:
+	6502 - plain vanilla
+	6501 - Rockwell enhanced commands
+	65C00 - Rockwell enhanced commands, with some added CMOS functions
+	65C02 - GTE and others
+		including 65C151
+
+------------------
+Opcode differences
+------------------
+
+1) 6501 and 65C00 subfamilies: the opcodes x7 and xF are all valid
+
+2) 65C00 and 65C02 subfamilies : the following opcodes are valid
+		5A 7A DA FA
+		80
+3) 65C02 subfamily: the following opcodes are valid
+		04 0C
+		12 14 1A 1C
+		32 34 3A 3C
+		52
+		64
+		72 74 7C
+		89
+		92 9C 9E
+		B2
+		D2
+		F2
+4) 65C00 subfamily: the opcode 02 is valid
+
+-----------------------
+Source code differences
+-----------------------
+
+1) 6501 and 65C00 subfamilies:
+	the source code SMBx, RMBx, BBSx, and BBRx (x=0 to 7) are all valid
+
+2) 65C00 and 65C02 subfamilies:
+	the source codes BRA, PHY, PLY, PHX, and PLX are valid
+
+3) 65C02 subfamily:
+	the source codes TSB, TRB, and STZ (or CLR) are valid
+	in addition, the following address modes are added to existing codes:
+		ORA (indirect)
+		AND (indirect)
+		EOR (indirect)
+		ADC (indirect)
+		STA (indirect)
+		LDA (indirect)
+		CMP (indirect)
+		SBC (indirect)
+		INC (accumulator)
+		DEC (accumulator)
+		JMP (indirect,X)
+		BIT (zeropage,X)
+		BIT (indexed,X)
+		BIT (immediate)
+
+4) 65C00 subfamily:
+	the source code MUL is valid
+

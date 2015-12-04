@@ -1,0 +1,3 @@
+dsm.obj dsmio.obj hash.obj+
+dsm6502.obj dsm6801.obj dsm6805.obj dsm6809.obj dsm6811.obj+
+dsm8051.obj dsm8080.obj dsmh8.obj dsmrsc.obj dsmz80.obj

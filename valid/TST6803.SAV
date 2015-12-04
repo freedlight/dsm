@@ -1,0 +1,273 @@
+ 8000  00        .DB   $00         ;.
+ 8001  01        NOP               ;.
+ 8002  02        .DB   $02         ;.
+ 8003  03        .DB   $03         ;.
+ 8004  04        LSRD              ;.
+ 8005  05        ASLD              ;.
+ 8006  06        TAP               ;.
+ 8007  07        TPA               ;.
+ 8008  08        INX               ;.
+ 8009  09        DEX               ;.
+ 800A  0A        CLV               ;.
+ 800B  0B        SEV               ;.
+ 800C  0C        CLC               ;.
+ 800D  0D        SEC               ;.
+ 800E  0E        CLI               ;.
+ 800F  0F        SEI               ;.
+ 8010  10        SBA               ;.
+ 8011  11        CBA               ;.
+ 8012  12        .DB   $12         ;.
+ 8013  13        .DB   $13         ;.
+ 8014  14        .DB   $14         ;.
+ 8015  15        .DB   $15         ;.
+ 8016  16        TAB               ;.
+ 8017  17        TBA               ;.
+ 8018  18        XGDX              ;.
+ 8019  19        DAA               ;.
+ 801A  1A        SLEEP             ;.
+ 801B  1B        ABA               ;.
+ 801C  1C        .DB   $1C         ;.
+ 801D  1D        .DB   $1D         ;.
+ 801E  1E        .DB   $1E         ;.
+ 801F  1F        .DB   $1F         ;.
+ 8020  20 11     BRA   L8033       ; .
+ 8022  21 11     BRN   L8035       ;!.
+ 8024  22 11     BHI   L8037       ;".
+ 8026  23 11     BLS   L8039       ;#.
+ 8028  24 11     BCC   L803B       ;$.
+ 802A  25 11     BCS   L803D       ;%.
+ 802C  26 11     BNE   L803F       ;&.
+ 802E  27 11     BEQ   L8041       ;'.
+ 8030  28 11     BVC   L8043       ;(.
+ 8032  29 11     BVS   L8045       ;).
+ 8034  2A 11     BPL   L8047       ;*.
+ 8036  2B 11     BMI   L8049       ;+.
+ 8038  2C 11     BGE   L804B       ;,.
+ 803A  2D 11     BLT   L804D       ;-.
+ 803C  2E 11     BGT   L804F       ;..
+ 803E  2F 11     BLE   L8051       ;/.
+ 8040  30        TSX               ;0
+L8041: 31        INS               ;1
+ 8042  32        PULA              ;2
+L8043: 33        PULB              ;3
+ 8044  34        DES               ;4
+L8045: 35        TXS               ;5
+ 8046  36        PSHA              ;6
+L8047: 37        PSHB              ;7
+ 8048  38        PULX              ;8
+L8049: 39        RTS               ;9
+
+ 804A  3A        ABX               ;:
+L804B: 3B        RTI               ;;
+
+ 804C  3C        PSHX              ;<
+L804D: 3D        MUL               ;=
+ 804E  3E        WAIT              ;>
+L804F: 3F        SWI               ;?
+ 8050  40        NEG   A           ;@
+L8051: 41        .DB   $41         ;A
+ 8052  42        .DB   $42         ;B
+ 8053  43        COM   A           ;C
+ 8054  44        LSR   A           ;D
+ 8055  45        .DB   $45         ;E
+ 8056  46        ROR   A           ;F
+ 8057  47        ASR   A           ;G
+ 8058  48        ASL   A           ;H
+ 8059  49        ROL   A           ;I
+ 805A  4A        DEC   A           ;J
+ 805B  4B        .DB   $4B         ;K
+ 805C  4C        INC   A           ;L
+ 805D  4D        TST   A           ;M
+ 805E  4E        .DB   $4E         ;N
+ 805F  4F        CLR   A           ;O
+ 8060  50        NEG   B           ;P
+ 8061  51        .DB   $51         ;Q
+ 8062  52        .DB   $52         ;R
+ 8063  53        COM   B           ;S
+ 8064  54        LSR   B           ;T
+ 8065  55        .DB   $55         ;U
+ 8066  56        ROR   B           ;V
+ 8067  57        ASR   B           ;W
+ 8068  58        ASL   B           ;X
+ 8069  59        ROL   B           ;Y
+ 806A  5A        DEC   B           ;Z
+ 806B  5B        .DB   $5B         ;[
+ 806C  5C        INC   B           ;\
+ 806D  5D        TST   B           ;]
+ 806E  5E        .DB   $5E         ;^
+ 806F  5F        CLR   B           ;_
+ 8070  60 11     NEG   D11,X       ;`.
+ 8072  61 01 11  AIM   #$01,D11    ;a..
+ 8075  62 01 11  OIM   #$01,D11    ;b..
+ 8078  63 11     COM   D11,X       ;c.
+ 807A  64 11     LSR   D11,X       ;d.
+ 807C  65 01 11  EIM   #$01,D11    ;e..
+ 807F  66 11     ROR   D11,X       ;f.
+ 8081  67 11     ASR   D11,X       ;g.
+ 8083  68 11     ASL   D11,X       ;h.
+ 8085  69 11     ROL   D11,X       ;i.
+ 8087  6A 11     DEC   D11,X       ;j.
+ 8089  6B 01 11  TIM   #$01,D11    ;k..
+ 808C  6C 11     INC   D11,X       ;l.
+ 808E  6D 11     TST   D11,X       ;m.
+ 8090  6E 11     JMP   D11,X       ;n.
+ 8092  6F 11     CLR   D11,X       ;o.
+ 8094  70 12 34  NEG   L1234       ;p.4
+ 8097  71 01 11  AIM   #$01,D11,X  ;q..
+ 809A  72 01 11  OIM   #$01,D11,X  ;r..
+ 809D  73 12 34  COM   L1234       ;s.4
+ 80A0  74 12 34  LSR   L1234       ;t.4
+ 80A3  75 01 11  EIM   #$01,D11,X  ;u..
+ 80A6  76 12 34  ROR   L1234       ;v.4
+ 80A9  77 12 34  ASR   L1234       ;w.4
+ 80AC  78 12 34  ASL   L1234       ;x.4
+ 80AF  79 12 34  ROL   L1234       ;y.4
+ 80B2  7A 12 34  DEC   L1234       ;z.4
+ 80B5  7B 01 11  TIM   #$01,D11,X  ;{..
+ 80B8  7C 12 34  INC   L1234       ;|.4
+ 80BB  7D 12 34  TST   L1234       ;}.4
+ 80BE  7E 12 34  JMP   L1234       ;~.4
+ 80C1  7F 12 34  CLR   L1234       ;..4
+ 80C4  80 11     SUBA  #$11        ;..
+ 80C6  81 11     CMPA  #$11        ;..
+ 80C8  82 11     SBCA  #$11        ;..
+ 80CA  83 12 34  SUBD  #$1234      ;..4
+ 80CD  84 11     ANDA  #$11        ;..
+ 80CF  85 11     BITA  #$11        ;..
+ 80D1  86 11     LDAA  #$11        ;..
+ 80D3  87        .DB   $87         ;.
+ 80D4  88 11     EORA  #$11        ;..
+ 80D6  89 11     ADCA  #$11        ;..
+ 80D8  8A 11     ORAA  #$11        ;..
+ 80DA  8B 11     ADDA  #$11        ;..
+ 80DC  8C 12 34  CPX   #$1234      ;..4
+ 80DF  8D 11     BSR   L80F2       ;..
+ 80E1  8E 12 34  LDS   #$1234      ;..4
+ 80E4  8F        .DB   $8F         ;.
+ 80E5  90 11     SUBA  D11         ;..
+ 80E7  91 11     CMPA  D11         ;..
+ 80E9  92 11     SBCA  D11         ;..
+ 80EB  93 11     SUBD  D11         ;..
+ 80ED  94 11     ANDA  D11         ;..
+ 80EF  95 11     BITA  D11         ;..
+ 80F1  96 11     LDAA  D11         ;..
+ 80F3  97 11     STAA  D11         ;..
+ 80F5  98 11     EORA  D11         ;..
+ 80F7  99 11     ADCA  D11         ;..
+ 80F9  9A 11     ORAA  D11         ;..
+ 80FB  9B 11     ADDA  D11         ;..
+ 80FD  9C 11     CPX   D11         ;..
+ 80FF  9D 11     JSR   D11         ;..
+ 8101  9E 11     LDS   D11         ;..
+ 8103  9F 11     STS   D11         ;..
+ 8105  A0 11     SUBA  D11,X       ;..
+ 8107  A1 11     CMPA  D11,X       ;..
+ 8109  A2 11     SBCA  D11,X       ;..
+ 810B  A3 11     SUBD  D11,X       ;..
+ 810D  A4 11     ANDA  D11,X       ;..
+ 810F  A5 11     BITA  D11,X       ;..
+ 8111  A6 11     LDAA  D11,X       ;..
+ 8113  A7 11     STAA  D11,X       ;..
+ 8115  A8 11     EORA  D11,X       ;..
+ 8117  A9 11     ADCA  D11,X       ;..
+ 8119  AA 11     ORAA  D11,X       ;..
+ 811B  AB 11     ADDA  D11,X       ;..
+ 811D  AC 11     CPX   D11,X       ;..
+ 811F  AD 11     JSR   D11,X       ;..
+ 8121  AE 11     LDS   D11,X       ;..
+ 8123  AF 11     STS   D11,X       ;..
+ 8125  B0 12 34  SUBA  L1234       ;..4
+ 8128  B1 12 34  CMPA  L1234       ;..4
+ 812B  B2 12 34  SBCA  L1234       ;..4
+ 812E  B3 12 34  SUBD  L1234       ;..4
+ 8131  B4 12 34  ANDA  L1234       ;..4
+ 8134  B5 12 34  BITA  L1234       ;..4
+ 8137  B6 12 34  LDAA  L1234       ;..4
+ 813A  B7 12 34  STAA  L1234       ;..4
+ 813D  B8 12 34  EORA  L1234       ;..4
+ 8140  B9 12 34  ADCA  L1234       ;..4
+ 8143  BA 12 34  ORAA  L1234       ;..4
+ 8146  BB 12 34  ADDA  L1234       ;..4
+ 8149  BC 12 34  CPX   L1234       ;..4
+ 814C  BD 12 34  JSR   L1234       ;..4
+ 814F  BE 12 34  LDS   L1234       ;..4
+ 8152  BF 12 34  STS   L1234       ;..4
+ 8155  C0 11     SUBB  #$11        ;..
+ 8157  C1 11     CMPB  #$11        ;..
+ 8159  C2 11     SBCB  #$11        ;..
+ 815B  C3 12 34  ADDD  #$1234      ;..4
+ 815E  C4 11     ANDB  #$11        ;..
+ 8160  C5 11     BITB  #$11        ;..
+ 8162  C6 11     LDAB  #$11        ;..
+ 8164  C7        .DB   $C7         ;.
+ 8165  C8 11     EORB  #$11        ;..
+ 8167  C9 11     ADCB  #$11        ;..
+ 8169  CA 11     ORAB  #$11        ;..
+ 816B  CB 11     ADDB  #$11        ;..
+ 816D  CC 12 34  LDD   #$1234      ;..4
+ 8170  CD        .DB   $CD         ;.
+ 8171  CE 12 34  LDX   #$1234      ;..4
+ 8174  CF        .DB   $CF         ;.
+ 8175  D0 11     SUBB  D11         ;..
+ 8177  D1 11     CMPB  D11         ;..
+ 8179  D2 11     SBCB  D11         ;..
+ 817B  D3 11     ADDD  D11         ;..
+ 817D  D4 11     ANDB  D11         ;..
+ 817F  D5 11     BITB  D11         ;..
+ 8181  D6 11     LDAB  D11         ;..
+ 8183  D7 11     STAB  D11         ;..
+ 8185  D8 11     EORB  D11         ;..
+ 8187  D9 11     ADCB  D11         ;..
+ 8189  DA 11     ORAB  D11         ;..
+ 818B  DB 11     ADDB  D11         ;..
+ 818D  DC 11     LDD   D11         ;..
+ 818F  DD 11     STD   D11         ;..
+ 8191  DE 11     LDX   D11         ;..
+ 8193  DF 11     STX   D11         ;..
+ 8195  E0 11     SUBB  D11,X       ;..
+ 8197  E1 11     CMPB  D11,X       ;..
+ 8199  E2 11     SBCB  D11,X       ;..
+ 819B  E3 11     ADDD  D11,X       ;..
+ 819D  E4 11     ANDB  D11,X       ;..
+ 819F  E5 11     BITB  D11,X       ;..
+ 81A1  E6 11     LDAB  D11,X       ;..
+ 81A3  E7 11     STAB  D11,X       ;..
+ 81A5  E8 11     EORB  D11,X       ;..
+ 81A7  E9 11     ADCB  D11,X       ;..
+ 81A9  EA 11     ORAB  D11,X       ;..
+ 81AB  EB 11     ADDB  D11,X       ;..
+ 81AD  EC 11     LDD   D11,X       ;..
+ 81AF  ED 11     STD   D11,X       ;..
+ 81B1  EE 11     LDX   D11,X       ;..
+ 81B3  EF 11     STX   D11,X       ;..
+ 81B5  F0 12 34  SUBB  L1234       ;..4
+ 81B8  F1 12 34  CMPB  L1234       ;..4
+ 81BB  F2 12 34  SBCB  L1234       ;..4
+ 81BE  F3 12 34  ADDD  L1234       ;..4
+ 81C1  F4 12 34  ANDB  L1234       ;..4
+ 81C4  F5 12 34  BITB  L1234       ;..4
+ 81C7  F6 12 34  LDAB  L1234       ;..4
+ 81CA  F7 12 34  STAB  L1234       ;..4
+ 81CD  F8 12 34  EORB  L1234       ;..4
+ 81D0  F9 12 34  ADCB  L1234       ;..4
+ 81D3  FA 12 34  ORAB  L1234       ;..4
+ 81D6  FB 12 34  ADDB  L1234       ;..4
+ 81D9  FC 12 34  LDD   L1234       ;..4
+ 81DC  FD 12 34  STD   L1234       ;..4
+ 81DF  FE 12 34  LDX   L1234       ;..4
+ 81E2  FF 12 34  STX   L1234       ;..4
+
+
+leftover symbols
+
+D11     	11
+L1234   	1234
+L8033   	8033
+L8035   	8035
+L8037   	8037
+L8039   	8039
+L803B   	803B
+L803D   	803D
+L803F   	803F
+L80F2   	80F2
+

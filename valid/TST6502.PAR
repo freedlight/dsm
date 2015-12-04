@@ -1,0 +1,9 @@
+* test param file for DSM
+
+	.IN		tst6502.obj
+	.OUT	tst6502.asm
+	.CPU	6502
+	.PC		$8000
+	.END	$81FB
+	.BLKSIZ	30000
+

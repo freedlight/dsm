@@ -1,0 +1,8 @@
+* test param file for DSM
+
+	.IN		tsth8.obj
+	.OUT	tsth82.asm
+	.CPU	H83002
+	.PC		$1000
+	.END	$14A5
+

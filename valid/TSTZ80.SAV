@@ -1,0 +1,814 @@
+ 8000  00            NOP                  ;.
+ 8001  01 34 12      LD    BC,L1234       ;.4.
+ 8004  02            LD    (BC),A         ;.
+ 8005  03            INC   BC             ;.
+ 8006  04            INC   B              ;.
+ 8007  05            DEC   B              ;.
+ 8008  06 11         LD    B,D11          ;..
+ 800A  07            RLCA                 ;.
+ 800B  08            EX    AF,AF'         ;.
+ 800C  09            ADD   HL,BC          ;.
+ 800D  0A            LD    A,(BC)         ;.
+ 800E  0B            DEC   BC             ;.
+ 800F  0C            INC   C              ;.
+ 8010  0D            DEC   C              ;.
+ 8011  0E 11         LD    C,D11          ;..
+ 8013  0F            RRCA                 ;.
+ 8014  10 11         DJNZ  L8027          ;..
+ 8016  11 34 12      LD    DE,L1234       ;.4.
+ 8019  12            LD    (DE),A         ;.
+ 801A  13            INC   DE             ;.
+ 801B  14            INC   D              ;.
+ 801C  15            DEC   D              ;.
+ 801D  16 11         LD    D,D11          ;..
+ 801F  17            RLA                  ;.
+ 8020  18 11         JR    L8033          ;..
+ 8022  19            ADD   HL,DE          ;.
+ 8023  1A            LD    A,(DE)         ;.
+ 8024  1B            DEC   DE             ;.
+ 8025  1C            INC   E              ;.
+ 8026  1D            DEC   E              ;.
+L8027: 1E 11         LD    E,D11          ;..
+ 8029  1F            RRA                  ;.
+ 802A  20 11         JR    NZ,L803D       ; .
+ 802C  21 34 12      LD    HL,L1234       ;!4.
+ 802F  22 34 12      LD    (L1234),HL     ;"4.
+ 8032  23            INC   HL             ;#
+L8033: 24            INC   H              ;$
+ 8034  25            DEC   H              ;%
+ 8035  26 11         LD    H,D11          ;&.
+ 8037  27            DAA                  ;'
+ 8038  28 11         JR    Z,L804B        ;(.
+ 803A  29            ADD   HL,HL          ;)
+ 803B  2A 34 12      LD    HL,(L1234)     ;*4.
+ 803E  2B            DEC   HL             ;+
+ 803F  2C            INC   L              ;,
+ 8040  2D            DEC   L              ;-
+ 8041  2E 11         LD    L,D11          ;..
+ 8043  2F            CPL                  ;/
+ 8044  30 11         JR    NC,L8057       ;0.
+ 8046  31 34 12      LD    SP,L1234       ;14.
+ 8049  32 34 12      LD    (L1234),A      ;24.
+ 804C  33            INC   SP             ;3
+ 804D  34            INC   (HL)           ;4
+ 804E  35            DEC   (HL)           ;5
+ 804F  36 11         LD    (HL),D11       ;6.
+ 8051  37            SCF                  ;7
+ 8052  38 11         JR    C,L8065        ;8.
+ 8054  39            ADD   HL,SP          ;9
+ 8055  3A 34 12      LD    A,(L1234)      ;:4.
+ 8058  3B            DEC   SP             ;;
+ 8059  3C            INC   A              ;<
+ 805A  3D            DEC   A              ;=
+ 805B  3E 11         LD    A,D11          ;>.
+ 805D  3F            CCF                  ;?
+ 805E  40            LD    B,B            ;@
+ 805F  41            LD    B,C            ;A
+ 8060  42            LD    B,D            ;B
+ 8061  43            LD    B,E            ;C
+ 8062  44            LD    B,H            ;D
+ 8063  45            LD    B,L            ;E
+ 8064  46            LD    B,(HL)         ;F
+L8065: 47            LD    B,A            ;G
+ 8066  48            LD    C,B            ;H
+ 8067  49            LD    C,C            ;I
+ 8068  4A            LD    C,D            ;J
+ 8069  4B            LD    C,E            ;K
+ 806A  4C            LD    C,H            ;L
+ 806B  4D            LD    C,L            ;M
+ 806C  4E            LD    C,(HL)         ;N
+ 806D  4F            LD    C,A            ;O
+ 806E  50            LD    D,B            ;P
+ 806F  51            LD    D,C            ;Q
+ 8070  52            LD    D,D            ;R
+ 8071  53            LD    D,E            ;S
+ 8072  54            LD    D,H            ;T
+ 8073  55            LD    D,L            ;U
+ 8074  56            LD    D,(HL)         ;V
+ 8075  57            LD    D,A            ;W
+ 8076  58            LD    E,B            ;X
+ 8077  59            LD    E,C            ;Y
+ 8078  5A            LD    E,D            ;Z
+ 8079  5B            LD    E,E            ;[
+ 807A  5C            LD    E,H            ;\
+ 807B  5D            LD    E,L            ;]
+ 807C  5E            LD    E,(HL)         ;^
+ 807D  5F            LD    E,A            ;_
+ 807E  60            LD    H,B            ;`
+ 807F  61            LD    H,C            ;a
+ 8080  62            LD    H,D            ;b
+ 8081  63            LD    H,E            ;c
+ 8082  64            LD    H,H            ;d
+ 8083  65            LD    H,L            ;e
+ 8084  66            LD    H,(HL)         ;f
+ 8085  67            LD    H,A            ;g
+ 8086  68            LD    L,B            ;h
+ 8087  69            LD    L,C            ;i
+ 8088  6A            LD    L,D            ;j
+ 8089  6B            LD    L,E            ;k
+ 808A  6C            LD    L,H            ;l
+ 808B  6D            LD    L,L            ;m
+ 808C  6E            LD    L,(HL)         ;n
+ 808D  6F            LD    L,A            ;o
+ 808E  70            LD    (HL),B         ;p
+ 808F  71            LD    (HL),C         ;q
+ 8090  72            LD    (HL),D         ;r
+ 8091  73            LD    (HL),E         ;s
+ 8092  74            LD    (HL),H         ;t
+ 8093  75            LD    (HL),L         ;u
+ 8094  76            HALT                 ;v
+ 8095  77            LD    (HL),A         ;w
+ 8096  78            LD    A,B            ;x
+ 8097  79            LD    A,C            ;y
+ 8098  7A            LD    A,D            ;z
+ 8099  7B            LD    A,E            ;{
+ 809A  7C            LD    A,H            ;|
+ 809B  7D            LD    A,L            ;}
+ 809C  7E            LD    A,(HL)         ;~
+ 809D  7F            LD    A,A            ;.
+ 809E  80            ADD   A,B            ;.
+ 809F  81            ADD   A,C            ;.
+ 80A0  82            ADD   A,D            ;.
+ 80A1  83            ADD   A,E            ;.
+ 80A2  84            ADD   A,H            ;.
+ 80A3  85            ADD   A,L            ;.
+ 80A4  86            ADD   A,(HL)         ;.
+ 80A5  87            ADD   A,A            ;.
+ 80A6  88            ADC   A,B            ;.
+ 80A7  89            ADC   A,C            ;.
+ 80A8  8A            ADC   A,D            ;.
+ 80A9  8B            ADC   A,E            ;.
+ 80AA  8C            ADC   A,H            ;.
+ 80AB  8D            ADC   A,L            ;.
+ 80AC  8E            ADC   A,(HL)         ;.
+ 80AD  8F            ADC   A,A            ;.
+ 80AE  90            SUB   B              ;.
+ 80AF  91            SUB   C              ;.
+ 80B0  92            SUB   D              ;.
+ 80B1  93            SUB   E              ;.
+ 80B2  94            SUB   H              ;.
+ 80B3  95            SUB   L              ;.
+ 80B4  96            SUB   (HL)           ;.
+ 80B5  97            SUB   A              ;.
+ 80B6  98            SBC   A,B            ;.
+ 80B7  99            SBC   A,C            ;.
+ 80B8  9A            SBC   A,D            ;.
+ 80B9  9B            SBC   A,E            ;.
+ 80BA  9C            SBC   A,H            ;.
+ 80BB  9D            SBC   A,L            ;.
+ 80BC  9E            SBC   A,(HL)         ;.
+ 80BD  9F            SBC   A,A            ;.
+ 80BE  A0            AND   B              ;.
+ 80BF  A1            AND   C              ;.
+ 80C0  A2            AND   D              ;.
+ 80C1  A3            AND   E              ;.
+ 80C2  A4            AND   H              ;.
+ 80C3  A5            AND   L              ;.
+ 80C4  A6            AND   (HL)           ;.
+ 80C5  A7            AND   A              ;.
+ 80C6  A8            XOR   B              ;.
+ 80C7  A9            XOR   C              ;.
+ 80C8  AA            XOR   D              ;.
+ 80C9  AB            XOR   E              ;.
+ 80CA  AC            XOR   H              ;.
+ 80CB  AD            XOR   L              ;.
+ 80CC  AE            XOR   (HL)           ;.
+ 80CD  AF            XOR   A              ;.
+ 80CE  B0            OR    B              ;.
+ 80CF  B1            OR    C              ;.
+ 80D0  B2            OR    D              ;.
+ 80D1  B3            OR    E              ;.
+ 80D2  B4            OR    H              ;.
+ 80D3  B5            OR    L              ;.
+ 80D4  B6            OR    (HL)           ;.
+ 80D5  B7            OR    A              ;.
+ 80D6  B8            CP    B              ;.
+ 80D7  B9            CP    C              ;.
+ 80D8  BA            CP    D              ;.
+ 80D9  BB            CP    E              ;.
+ 80DA  BC            CP    H              ;.
+ 80DB  BD            CP    L              ;.
+ 80DC  BE            CP    (HL)           ;.
+ 80DD  BF            CP    A              ;.
+ 80DE  C0            RET   NZ             ;.
+ 80DF  C1            POP   BC             ;.
+ 80E0  C2 34 12      JP    NZ,L1234       ;.4.
+ 80E3  C3 34 12      JP    L1234          ;.4.
+ 80E6  C4 34 12      CALL  NZ,L1234       ;.4.
+ 80E9  C5            PUSH  BC             ;.
+ 80EA  C6 11         ADD   A,D11          ;..
+ 80EC  C7            RST   00H            ;.
+ 80ED  C8            RET   Z              ;.
+ 80EE  C9            RET                  ;.
+
+ 80EF  CA 34 12      JP    Z,L1234        ;.4.
+ 80F2  CB 00         RLC   B              ;..
+ 80F4  CB 01         RLC   C              ;..
+ 80F6  CB 02         RLC   D              ;..
+ 80F8  CB 03         RLC   E              ;..
+ 80FA  CB 04         RLC   H              ;..
+ 80FC  CB 05         RLC   L              ;..
+ 80FE  CB 06         RLC   (HL)           ;..
+ 8100  CB 07         RLC   A              ;..
+ 8102  CB 08         RRC   B              ;..
+ 8104  CB 09         RRC   C              ;..
+ 8106  CB 0A         RRC   D              ;..
+ 8108  CB 0B         RRC   E              ;..
+ 810A  CB 0C         RRC   H              ;..
+ 810C  CB 0D         RRC   L              ;..
+ 810E  CB 0E         RRC   (HL)           ;..
+ 8110  CB 0F         RRC   A              ;..
+ 8112  CB 10         RL    B              ;..
+ 8114  CB 11         RL    C              ;..
+ 8116  CB 12         RL    D              ;..
+ 8118  CB 13         RL    E              ;..
+ 811A  CB 14         RL    H              ;..
+ 811C  CB 15         RL    L              ;..
+ 811E  CB 16         RL    (HL)           ;..
+ 8120  CB 17         RL    A              ;..
+ 8122  CB 18         RR    B              ;..
+ 8124  CB 19         RR    C              ;..
+ 8126  CB 1A         RR    D              ;..
+ 8128  CB 1B         RR    E              ;..
+ 812A  CB 1C         RR    H              ;..
+ 812C  CB 1D         RR    L              ;..
+ 812E  CB 1E         RR    (HL)           ;..
+ 8130  CB 1F         RR    A              ;..
+ 8132  CB 20         SLA   B              ;. 
+ 8134  CB 21         SLA   C              ;.!
+ 8136  CB 22         SLA   D              ;."
+ 8138  CB 23         SLA   E              ;.#
+ 813A  CB 24         SLA   H              ;.$
+ 813C  CB 25         SLA   L              ;.%
+ 813E  CB 26         SLA   (HL)           ;.&
+ 8140  CB 27         SLA   A              ;.'
+ 8142  CB 28         SRA   B              ;.(
+ 8144  CB 29         SRA   C              ;.)
+ 8146  CB 2A         SRA   D              ;.*
+ 8148  CB 2B         SRA   E              ;.+
+ 814A  CB 2C         SRA   H              ;.,
+ 814C  CB 2D         SRA   L              ;.-
+ 814E  CB 2E         SRA   (HL)           ;..
+ 8150  CB 2F         SRA   A              ;./
+ 8152  CB 38         SRL   B              ;.8
+ 8154  CB 39         SRL   C              ;.9
+ 8156  CB 3A         SRL   D              ;.:
+ 8158  CB 3B         SRL   E              ;.;
+ 815A  CB 3C         SRL   H              ;.<
+ 815C  CB 3D         SRL   L              ;.=
+ 815E  CB 3E         SRL   (HL)           ;.>
+ 8160  CB 3F         SRL   A              ;.?
+ 8162  CB 40         BIT   0,B            ;.@
+ 8164  CB 41         BIT   0,C            ;.A
+ 8166  CB 42         BIT   0,D            ;.B
+ 8168  CB 43         BIT   0,E            ;.C
+ 816A  CB 44         BIT   0,H            ;.D
+ 816C  CB 45         BIT   0,L            ;.E
+ 816E  CB 46         BIT   0,(HL)         ;.F
+ 8170  CB 47         BIT   0,A            ;.G
+ 8172  CB 48         BIT   1,B            ;.H
+ 8174  CB 49         BIT   1,C            ;.I
+ 8176  CB 4A         BIT   1,D            ;.J
+ 8178  CB 4B         BIT   1,E            ;.K
+ 817A  CB 4C         BIT   1,H            ;.L
+ 817C  CB 4D         BIT   1,L            ;.M
+ 817E  CB 4E         BIT   1,(HL)         ;.N
+ 8180  CB 4F         BIT   1,A            ;.O
+ 8182  CB 50         BIT   2,B            ;.P
+ 8184  CB 51         BIT   2,C            ;.Q
+ 8186  CB 52         BIT   2,D            ;.R
+ 8188  CB 53         BIT   2,E            ;.S
+ 818A  CB 54         BIT   2,H            ;.T
+ 818C  CB 55         BIT   2,L            ;.U
+ 818E  CB 56         BIT   2,(HL)         ;.V
+ 8190  CB 57         BIT   2,A            ;.W
+ 8192  CB 58         BIT   3,B            ;.X
+ 8194  CB 59         BIT   3,C            ;.Y
+ 8196  CB 5A         BIT   3,D            ;.Z
+ 8198  CB 5B         BIT   3,E            ;.[
+ 819A  CB 5C         BIT   3,H            ;.\
+ 819C  CB 5D         BIT   3,L            ;.]
+ 819E  CB 5E         BIT   3,(HL)         ;.^
+ 81A0  CB 5F         BIT   3,A            ;._
+ 81A2  CB 60         BIT   4,B            ;.`
+ 81A4  CB 61         BIT   4,C            ;.a
+ 81A6  CB 62         BIT   4,D            ;.b
+ 81A8  CB 63         BIT   4,E            ;.c
+ 81AA  CB 64         BIT   4,H            ;.d
+ 81AC  CB 65         BIT   4,L            ;.e
+ 81AE  CB 66         BIT   4,(HL)         ;.f
+ 81B0  CB 67         BIT   4,A            ;.g
+ 81B2  CB 68         BIT   5,B            ;.h
+ 81B4  CB 69         BIT   5,C            ;.i
+ 81B6  CB 6A         BIT   5,D            ;.j
+ 81B8  CB 6B         BIT   5,E            ;.k
+ 81BA  CB 6C         BIT   5,H            ;.l
+ 81BC  CB 6D         BIT   5,L            ;.m
+ 81BE  CB 6E         BIT   5,(HL)         ;.n
+ 81C0  CB 6F         BIT   5,A            ;.o
+ 81C2  CB 70         BIT   6,B            ;.p
+ 81C4  CB 71         BIT   6,C            ;.q
+ 81C6  CB 72         BIT   6,D            ;.r
+ 81C8  CB 73         BIT   6,E            ;.s
+ 81CA  CB 74         BIT   6,H            ;.t
+ 81CC  CB 75         BIT   6,L            ;.u
+ 81CE  CB 76         BIT   6,(HL)         ;.v
+ 81D0  CB 77         BIT   6,A            ;.w
+ 81D2  CB 78         BIT   7,B            ;.x
+ 81D4  CB 79         BIT   7,C            ;.y
+ 81D6  CB 7A         BIT   7,D            ;.z
+ 81D8  CB 7B         BIT   7,E            ;.{
+ 81DA  CB 7C         BIT   7,H            ;.|
+ 81DC  CB 7D         BIT   7,L            ;.}
+ 81DE  CB 7E         BIT   7,(HL)         ;.~
+ 81E0  CB 7F         BIT   7,A            ;..
+ 81E2  CB 80         RES   0,B            ;..
+ 81E4  CB 81         RES   0,C            ;..
+ 81E6  CB 82         RES   0,D            ;..
+ 81E8  CB 83         RES   0,E            ;..
+ 81EA  CB 84         RES   0,H            ;..
+ 81EC  CB 85         RES   0,L            ;..
+ 81EE  CB 86         RES   0,(HL)         ;..
+ 81F0  CB 87         RES   0,A            ;..
+ 81F2  CB 88         RES   1,B            ;..
+ 81F4  CB 89         RES   1,C            ;..
+ 81F6  CB 8A         RES   1,D            ;..
+ 81F8  CB 8B         RES   1,E            ;..
+ 81FA  CB 8C         RES   1,H            ;..
+ 81FC  CB 8D         RES   1,L            ;..
+ 81FE  CB 8E         RES   1,(HL)         ;..
+ 8200  CB 8F         RES   1,A            ;..
+ 8202  CB 90         RES   2,B            ;..
+ 8204  CB 91         RES   2,C            ;..
+ 8206  CB 92         RES   2,D            ;..
+ 8208  CB 93         RES   2,E            ;..
+ 820A  CB 94         RES   2,H            ;..
+ 820C  CB 95         RES   2,L            ;..
+ 820E  CB 96         RES   2,(HL)         ;..
+ 8210  CB 97         RES   2,A            ;..
+ 8212  CB 98         RES   3,B            ;..
+ 8214  CB 99         RES   3,C            ;..
+ 8216  CB 9A         RES   3,D            ;..
+ 8218  CB 9B         RES   3,E            ;..
+ 821A  CB 9C         RES   3,H            ;..
+ 821C  CB 9D         RES   3,L            ;..
+ 821E  CB 9E         RES   3,(HL)         ;..
+ 8220  CB 9F         RES   3,A            ;..
+ 8222  CB A0         RES   4,B            ;..
+ 8224  CB A1         RES   4,C            ;..
+ 8226  CB A2         RES   4,D            ;..
+ 8228  CB A3         RES   4,E            ;..
+ 822A  CB A4         RES   4,H            ;..
+ 822C  CB A5         RES   4,L            ;..
+ 822E  CB A6         RES   4,(HL)         ;..
+ 8230  CB A7         RES   4,A            ;..
+ 8232  CB A8         RES   5,B            ;..
+ 8234  CB A9         RES   5,C            ;..
+ 8236  CB AA         RES   5,D            ;..
+ 8238  CB AB         RES   5,E            ;..
+ 823A  CB AC         RES   5,H            ;..
+ 823C  CB AD         RES   5,L            ;..
+ 823E  CB AE         RES   5,(HL)         ;..
+ 8240  CB AF         RES   5,A            ;..
+ 8242  CB B0         RES   6,B            ;..
+ 8244  CB B1         RES   6,C            ;..
+ 8246  CB B2         RES   6,D            ;..
+ 8248  CB B3         RES   6,E            ;..
+ 824A  CB B4         RES   6,H            ;..
+ 824C  CB B5         RES   6,L            ;..
+ 824E  CB B6         RES   6,(HL)         ;..
+ 8250  CB B7         RES   6,A            ;..
+ 8252  CB B8         RES   7,B            ;..
+ 8254  CB B9         RES   7,C            ;..
+ 8256  CB BA         RES   7,D            ;..
+ 8258  CB BB         RES   7,E            ;..
+ 825A  CB BC         RES   7,H            ;..
+ 825C  CB BD         RES   7,L            ;..
+ 825E  CB BE         RES   7,(HL)         ;..
+ 8260  CB BF         RES   7,A            ;..
+ 8262  CB C0         SET   0,B            ;..
+ 8264  CB C1         SET   0,C            ;..
+ 8266  CB C2         SET   0,D            ;..
+ 8268  CB C3         SET   0,E            ;..
+ 826A  CB C4         SET   0,H            ;..
+ 826C  CB C5         SET   0,L            ;..
+ 826E  CB C6         SET   0,(HL)         ;..
+ 8270  CB C7         SET   0,A            ;..
+ 8272  CB C8         SET   1,B            ;..
+ 8274  CB C9         SET   1,C            ;..
+ 8276  CB CA         SET   1,D            ;..
+ 8278  CB CB         SET   1,E            ;..
+ 827A  CB CC         SET   1,H            ;..
+ 827C  CB CD         SET   1,L            ;..
+ 827E  CB CE         SET   1,(HL)         ;..
+ 8280  CB CF         SET   1,A            ;..
+ 8282  CB D0         SET   2,B            ;..
+ 8284  CB D1         SET   2,C            ;..
+ 8286  CB D2         SET   2,D            ;..
+ 8288  CB D3         SET   2,E            ;..
+ 828A  CB D4         SET   2,H            ;..
+ 828C  CB D5         SET   2,L            ;..
+ 828E  CB D6         SET   2,(HL)         ;..
+ 8290  CB D7         SET   2,A            ;..
+ 8292  CB D8         SET   3,B            ;..
+ 8294  CB D9         SET   3,C            ;..
+ 8296  CB DA         SET   3,D            ;..
+ 8298  CB DB         SET   3,E            ;..
+ 829A  CB DC         SET   3,H            ;..
+ 829C  CB DD         SET   3,L            ;..
+ 829E  CB DE         SET   3,(HL)         ;..
+ 82A0  CB DF         SET   3,A            ;..
+ 82A2  CB E0         SET   4,B            ;..
+ 82A4  CB E1         SET   4,C            ;..
+ 82A6  CB E2         SET   4,D            ;..
+ 82A8  CB E3         SET   4,E            ;..
+ 82AA  CB E4         SET   4,H            ;..
+ 82AC  CB E5         SET   4,L            ;..
+ 82AE  CB E6         SET   4,(HL)         ;..
+ 82B0  CB E7         SET   4,A            ;..
+ 82B2  CB E8         SET   5,B            ;..
+ 82B4  CB E9         SET   5,C            ;..
+ 82B6  CB EA         SET   5,D            ;..
+ 82B8  CB EB         SET   5,E            ;..
+ 82BA  CB EC         SET   5,H            ;..
+ 82BC  CB ED         SET   5,L            ;..
+ 82BE  CB EE         SET   5,(HL)         ;..
+ 82C0  CB EF         SET   5,A            ;..
+ 82C2  CB F0         SET   6,B            ;..
+ 82C4  CB F1         SET   6,C            ;..
+ 82C6  CB F2         SET   6,D            ;..
+ 82C8  CB F3         SET   6,E            ;..
+ 82CA  CB F4         SET   6,H            ;..
+ 82CC  CB F5         SET   6,L            ;..
+ 82CE  CB F6         SET   6,(HL)         ;..
+ 82D0  CB F7         SET   6,A            ;..
+ 82D2  CB F8         SET   7,B            ;..
+ 82D4  CB F9         SET   7,C            ;..
+ 82D6  CB FA         SET   7,D            ;..
+ 82D8  CB FB         SET   7,E            ;..
+ 82DA  CB FC         SET   7,H            ;..
+ 82DC  CB FD         SET   7,L            ;..
+ 82DE  CB FE         SET   7,(HL)         ;..
+ 82E0  CB FF         SET   7,A            ;..
+ 82E2  CC 34 12      CALL  Z,L1234        ;.4.
+ 82E5  CD 34 12      CALL  L1234          ;.4.
+ 82E8  CE 11         ADC   A,D11          ;..
+ 82EA  CF            RST   08H            ;.
+ 82EB  D0            RET   NC             ;.
+ 82EC  D1            POP   DE             ;.
+ 82ED  D2 34 12      JP    NC,L1234       ;.4.
+ 82F0  D3 11         OUT   (D11),A        ;..
+ 82F2  D4 34 12      CALL  NC,L1234       ;.4.
+ 82F5  D5            PUSH  DE             ;.
+ 82F6  D6 11         SUB   D11            ;..
+ 82F8  D7            RST   10H            ;.
+ 82F9  D8            RET   C              ;.
+ 82FA  D9            EXX                  ;.
+ 82FB  DA 34 12      JP    C,L1234        ;.4.
+ 82FE  DB 11         IN    A,(D11)        ;..
+ 8300  DC 34 12      CALL  C,L1234        ;.4.
+ 8303  DD 09         ADD   IX,BC          ;..
+ 8305  DD 19         ADD   IX,DE          ;..
+ 8307  DD 21 34 12   LD    IX,L1234       ;.!4.
+ 830B  DD 22 34 12   LD    (L1234),IX     ;."4.
+ 830F  DD 23         INC   IX             ;.#
+ 8311  DD 29         ADD   IX,IX          ;.)
+ 8313  DD 2A 34 12   LD    IX,(L1234)     ;.*4.
+ 8317  DD 2B         DEC   IX             ;.+
+ 8319  DD 34 11      INC   (IX+L832D)     ;.4.
+ 831C  DD 35 11      DEC   (IX+L8330)     ;.5.
+ 831F  DD 36 11 11   LD    (IX+L8334),11  ;.6..
+ 8323  DD 39         ADD   IX,SP          ;.9
+ 8325  DD 46 11      LD    B,(IX+L8339)   ;.F.
+ 8328  DD 4E 11      LD    C,(IX+L833C)   ;.N.
+ 832B  DD 56 11      LD    D,(IX+L833F)   ;.V.
+ 832E  DD 5E 11      LD    E,(IX+L8342)   ;.^.
+ 8331  DD 66 11      LD    H,(IX+L8345)   ;.f.
+L8334: DD 6E 11      LD    L,(IX+L8348)   ;.n.
+ 8337  DD 70 11      LD    (IX+L834B),B   ;.p.
+ 833A  DD 71 11      LD    (IX+L834E),C   ;.q.
+ 833D  DD 72 11      LD    (IX+L8351),D   ;.r.
+ 8340  DD 73 11      LD    (IX+L8354),E   ;.s.
+ 8343  DD 74 11      LD    (IX+L8357),H   ;.t.
+ 8346  DD 75 11      LD    (IX+L835A),L   ;.u.
+ 8349  DD 77 11      LD    (IX+L835D),A   ;.w.
+ 834C  DD 7E 11      LD    A,(IX+L8360)   ;.~.
+ 834F  DD 86 11      ADD   A,(IX+L8363)   ;...
+ 8352  DD 8E 11      ADC   A,(IX+L8366)   ;...
+ 8355  DD 96 11      SUB   (IX+L8369)     ;...
+ 8358  DD 9E 11      SBC   A,(IX+L836C)   ;...
+ 835B  DD A6 11      AND   (IX+L836F)     ;...
+ 835E  DD AE 11      XOR   (IX+L8372)     ;...
+ 8361  DD B6 11      OR    (IX+L8375)     ;...
+ 8364  DD BE 11      CP    (IX+L8378)     ;...
+ 8367  DD CB 11 06   RLC   (IX+L837C)     ;....
+ 836B  DD CB 11 0E   RRC   (IX+L8380)     ;....
+L836F: DD CB 11 16   RL    (IX+L8384)     ;....
+ 8373  DD CB 11 1E   RR    (IX+L8388)     ;....
+ 8377  DD CB 11 26   SLA   (IX+L838C)     ;...&
+ 837B  DD CB 11 2E   SRA   (IX+L8390)     ;....
+ 837F  DD CB 11 3E   SRL   (IX+L8394)     ;...>
+ 8383  DD CB 11 46   BIT   0,(IX+L8398)   ;...F
+ 8387  DD CB 11 4E   BIT   1,(IX+L839C)   ;...N
+ 838B  DD CB 11 56   BIT   2,(IX+L83A0)   ;...V
+ 838F  DD CB 11 5E   BIT   3,(IX+L83A4)   ;...^
+ 8393  DD CB 11 66   BIT   4,(IX+L83A8)   ;...f
+ 8397  DD CB 11 6E   BIT   5,(IX+L83AC)   ;...n
+ 839B  DD CB 11 76   BIT   6,(IX+L83B0)   ;...v
+ 839F  DD CB 11 7E   BIT   7,(IX+L83B4)   ;...~
+ 83A3  DD CB 11 86   RES   0,(IX+L83B8)   ;....
+ 83A7  DD CB 11 8E   RES   1,(IX+L83BC)   ;....
+ 83AB  DD CB 11 96   RES   2,(IX+L83C0)   ;....
+ 83AF  DD CB 11 9E   RES   3,(IX+L83C4)   ;....
+ 83B3  DD CB 11 A6   RES   4,(IX+L83C8)   ;....
+ 83B7  DD CB 11 AE   RES   5,(IX+L83CC)   ;....
+ 83BB  DD CB 11 B6   RES   6,(IX+L83D0)   ;....
+ 83BF  DD CB 11 BE   RES   7,(IX+L83D4)   ;....
+ 83C3  DD CB 11 C6   SET   0,(IX+L83D8)   ;....
+ 83C7  DD CB 11 CE   SET   1,(IX+L83DC)   ;....
+ 83CB  DD CB 11 D6   SET   2,(IX+L83E0)   ;....
+ 83CF  DD CB 11 DE   SET   3,(IX+L83E4)   ;....
+ 83D3  DD CB 11 E6   SET   4,(IX+L83E8)   ;....
+ 83D7  DD CB 11 EE   SET   5,(IX+L83EC)   ;....
+ 83DB  DD CB 11 F6   SET   6,(IX+L83F0)   ;....
+ 83DF  DD CB 11 FE   SET   7,(IX+L83F4)   ;....
+ 83E3  DD E1         POP   IX             ;..
+ 83E5  DD E3         EX    (SP),IX        ;..
+ 83E7  DD E5         PUSH  IX             ;..
+ 83E9  DD E9         JP    (IX)           ;..
+ 83EB  DD F9         LD    SP,IX          ;..
+ 83ED  DE 11         SBC   A,D11          ;..
+ 83EF  DF            RST   18H            ;.
+L83F0: E0            RET   PO             ;.
+ 83F1  E1            POP   HL             ;.
+ 83F2  E2 34 12      JP    PO,L1234       ;.4.
+ 83F5  E3            EX    (SP),HL        ;.
+ 83F6  E4 34 12      CALL  PO,L1234       ;.4.
+ 83F9  E5            PUSH  HL             ;.
+ 83FA  E6 11         AND   D11            ;..
+ 83FC  E7            RST   20H            ;.
+ 83FD  E8            RET   PE             ;.
+ 83FE  E9            JP    (HL)           ;.
+ 83FF  EA 34 12      JP    PE,L1234       ;.4.
+ 8402  EB            EX    DE,HL          ;.
+ 8403  EC 34 12      CALL  PE,L1234       ;.4.
+ 8406  ED 40         IN    B,(C)          ;.@
+ 8408  ED 41         OUT   (C),B          ;.A
+ 840A  ED 42         SBC   HL,BC          ;.B
+ 840C  ED 43 34 12   LD    (L1234),BC     ;.C4.
+ 8410  ED 44         NEG                  ;.D
+ 8412  ED 45         RETN                 ;.E
+ 8414  ED 46         IM    0              ;.F
+ 8416  ED 47         LD    I,A            ;.G
+ 8418  ED 48         IN    C,(C)          ;.H
+ 841A  ED 49         OUT   (C),C          ;.I
+ 841C  ED 4A         ADC   HL,BC          ;.J
+ 841E  ED 4B 34 12   LD    BC,(L1234)     ;.K4.
+ 8422  ED 4D         RETI                 ;.M
+ 8424  ED 4F         LD    R,A            ;.O
+ 8426  ED 50         IN    D,(C)          ;.P
+ 8428  ED 51         OUT   (C),D          ;.Q
+ 842A  ED 52         SBC   HL,DE          ;.R
+ 842C  ED 53 34 12   LD    (L1234),DE     ;.S4.
+ 8430  ED 56         IM    1              ;.V
+ 8432  ED 57         LD    A,I            ;.W
+ 8434  ED 58         IN    E,(C)          ;.X
+ 8436  ED 59         OUT   (C),E          ;.Y
+ 8438  ED 5A         ADC   HL,DE          ;.Z
+ 843A  ED 5B 34 12   LD    DE,(L1234)     ;.[4.
+ 843E  ED 5E         IM    2              ;.^
+ 8440  ED 5F         LD    A,R            ;._
+ 8442  ED 60         IN    H,(C)          ;.`
+ 8444  ED 61         OUT   (C),H          ;.a
+ 8446  ED 62         SBC   HL,HL          ;.b
+ 8448  ED 67         RRD                  ;.g
+ 844A  ED 68         IN    L,(C)          ;.h
+ 844C  ED 69         OUT   (C),L          ;.i
+ 844E  ED 6A         ADC   HL,HL          ;.j
+ 8450  ED 6F         RLD                  ;.o
+ 8452  ED 72         SBC   HL,SP          ;.r
+ 8454  ED 73 34 12   LD    (L1234),SP     ;.s4.
+ 8458  ED 78         IN    A,(C)          ;.x
+ 845A  ED 79         OUT   (C),A          ;.y
+ 845C  ED 7A         ADC   HL,SP          ;.z
+ 845E  ED 7B 34 12   LD    SP,(L1234)     ;.{4.
+ 8462  ED A0         LDI                  ;..
+ 8464  ED A1         CPI                  ;..
+ 8466  ED A2         INI                  ;..
+ 8468  ED A3         OUTI                 ;..
+ 846A  ED A8         LDD                  ;..
+ 846C  ED A9         CPD                  ;..
+ 846E  ED AA         IND                  ;..
+ 8470  ED AB         OUTD                 ;..
+ 8472  ED B0         LDIR                 ;..
+ 8474  ED B1         CPIR                 ;..
+ 8476  ED B2         INIR                 ;..
+ 8478  ED B3         OTIR                 ;..
+ 847A  ED B8         LDDR                 ;..
+ 847C  ED B9         CPDR                 ;..
+ 847E  ED BA         INDR                 ;..
+ 8480  ED BB         OTDR                 ;..
+ 8482  EE 11         XOR   D11            ;..
+ 8484  EF            RST   28H            ;.
+ 8485  F0            RET   P              ;.
+ 8486  F1            POP   AF             ;.
+ 8487  F2 34 12      JP    P,L1234        ;.4.
+ 848A  F3            DI                   ;.
+ 848B  F4 34 12      CALL  P,L1234        ;.4.
+ 848E  F5            PUSH  AF             ;.
+ 848F  F6 11         OR    D11            ;..
+ 8491  F7            RST   30H            ;.
+ 8492  F8            RET   M              ;.
+ 8493  F9            LD    SP,HL          ;.
+ 8494  FA 34 12      JP    M,L1234        ;.4.
+ 8497  FB            EI                   ;.
+ 8498  FC 34 12      CALL  M,L1234        ;.4.
+ 849B  FD 09         ADD   IY,BC          ;..
+ 849D  FD 19         ADD   IY,DE          ;..
+ 849F  FD 21 34 12   LD    IY,L1234       ;.!4.
+ 84A3  FD 22 34 12   LD    (L1234),IY     ;."4.
+ 84A7  FD 23         INC   IY             ;.#
+ 84A9  FD 29         ADD   IY,IY          ;.)
+ 84AB  FD 2A 34 12   LD    IY,(L1234)     ;.*4.
+ 84AF  FD 2B         DEC   IY             ;.+
+ 84B1  FD 34 11      INC   (IY+L84C5)     ;.4.
+ 84B4  FD 35 11      DEC   (IY+L84C8)     ;.5.
+ 84B7  FD 36 11 11   LD    (IY+L84CC),11  ;.6..
+ 84BB  FD 39         ADD   IY,SP          ;.9
+ 84BD  FD 46 11      LD    B,(IY+L84D1)   ;.F.
+ 84C0  FD 4E 11      LD    C,(IY+L84D4)   ;.N.
+ 84C3  FD 56 11      LD    D,(IY+L84D7)   ;.V.
+ 84C6  FD 5E 11      LD    E,(IY+L84DA)   ;.^.
+ 84C9  FD 66 11      LD    H,(IY+L84DD)   ;.f.
+L84CC: FD 6E 11      LD    L,(IY+L84E0)   ;.n.
+ 84CF  FD 70 11      LD    (IY+L84E3),B   ;.p.
+ 84D2  FD 71 11      LD    (IY+L84E6),C   ;.q.
+ 84D5  FD 72 11      LD    (IY+L84E9),D   ;.r.
+ 84D8  FD 73 11      LD    (IY+L84EC),E   ;.s.
+ 84DB  FD 74 11      LD    (IY+L84EF),H   ;.t.
+ 84DE  FD 75 11      LD    (IY+L84F2),L   ;.u.
+ 84E1  FD 77 11      LD    (IY+L84F5),A   ;.w.
+ 84E4  FD 7E 11      LD    A,(IY+L84F8)   ;.~.
+ 84E7  FD 86 11      ADD   A,(IY+L84FB)   ;...
+ 84EA  FD 8E 11      ADC   A,(IY+L84FE)   ;...
+ 84ED  FD 96 11      SUB   (IY+L8501)     ;...
+ 84F0  FD 9E 11      SBC   A,(IY+L8504)   ;...
+ 84F3  FD A6 11      AND   (IY+L8507)     ;...
+ 84F6  FD AE 11      XOR   (IY+L850A)     ;...
+ 84F9  FD B6 11      OR    (IY+L850D)     ;...
+ 84FC  FD BE 11      CP    (IY+L8510)     ;...
+ 84FF  FD CB 11 06   RLC   (IY+L8514)     ;....
+ 8503  FD CB 11 0E   RRC   (IY+L8518)     ;....
+L8507: FD CB 11 16   RL    (IY+L851C)     ;....
+ 850B  FD CB 11 1E   RR    (IY+L8520)     ;....
+ 850F  FD CB 11 26   SLA   (IY+L8524)     ;...&
+ 8513  FD CB 11 2E   SRA   (IY+L8528)     ;....
+ 8517  FD CB 11 3E   SRL   (IY+L852C)     ;...>
+ 851B  FD CB 11 46   BIT   0,(IY+L8530)   ;...F
+ 851F  FD CB 11 4E   BIT   1,(IY+L8534)   ;...N
+ 8523  FD CB 11 56   BIT   2,(IY+L8538)   ;...V
+ 8527  FD CB 11 5E   BIT   3,(IY+L853C)   ;...^
+ 852B  FD CB 11 66   BIT   4,(IY+L8540)   ;...f
+ 852F  FD CB 11 6E   BIT   5,(IY+L8544)   ;...n
+ 8533  FD CB 11 76   BIT   6,(IY+L8548)   ;...v
+ 8537  FD CB 11 7E   BIT   7,(IY+L854C)   ;...~
+ 853B  FD CB 11 86   RES   0,(IY+L8550)   ;....
+ 853F  FD CB 11 8E   RES   1,(IY+L8554)   ;....
+ 8543  FD CB 11 96   RES   2,(IY+L8558)   ;....
+ 8547  FD CB 11 9E   RES   3,(IY+L855C)   ;....
+ 854B  FD CB 11 A6   RES   4,(IY+L8560)   ;....
+ 854F  FD CB 11 AE   RES   5,(IY+L8564)   ;....
+ 8553  FD CB 11 B6   RES   6,(IY+L8568)   ;....
+ 8557  FD CB 11 BE   RES   7,(IY+L856C)   ;....
+ 855B  FD CB 11 C6   SET   0,(IY+L8570)   ;....
+ 855F  FD CB 11 CE   SET   1,(IY+L8574)   ;....
+ 8563  FD CB 11 D6   SET   2,(IY+L8578)   ;....
+ 8567  FD CB 11 DE   SET   3,(IY+L857C)   ;....
+ 856B  FD CB 11 E6   SET   4,(IY+L8580)   ;....
+ 856F  FD CB 11 EE   SET   5,(IY+L8584)   ;....
+ 8573  FD CB 11 F6   SET   6,(IY+L8588)   ;....
+ 8577  FD CB 11 FE   SET   7,(IY+L858C)   ;....
+ 857B  FD E1         POP   IY             ;..
+ 857D  FD E3         EX    (SP),IY        ;..
+ 857F  FD E5         PUSH  IY             ;..
+ 8581  FD E9         JP    (IY)           ;..
+ 8583  FD F9         LD    SP,IY          ;..
+ 8585  FE 11         CP    D11            ;..
+ 8587  FF            RST   38H            ;.
+
+
+leftover symbols
+
+D11     	11
+L1234   	1234
+L803D   	803D
+L804B   	804B
+L8057   	8057
+L832D   	832D
+L8330   	8330
+L8339   	8339
+L833C   	833C
+L833F   	833F
+L8342   	8342
+L8345   	8345
+L8348   	8348
+L834B   	834B
+L834E   	834E
+L8351   	8351
+L8354   	8354
+L8357   	8357
+L835A   	835A
+L835D   	835D
+L8360   	8360
+L8363   	8363
+L8366   	8366
+L8369   	8369
+L836C   	836C
+L8372   	8372
+L8375   	8375
+L8378   	8378
+L837C   	837C
+L8380   	8380
+L8384   	8384
+L8388   	8388
+L838C   	838C
+L8390   	8390
+L8394   	8394
+L8398   	8398
+L839C   	839C
+L83A0   	83A0
+L83A4   	83A4
+L83A8   	83A8
+L83AC   	83AC
+L83B0   	83B0
+L83B4   	83B4
+L83B8   	83B8
+L83BC   	83BC
+L83C0   	83C0
+L83C4   	83C4
+L83C8   	83C8
+L83CC   	83CC
+L83D0   	83D0
+L83D4   	83D4
+L83D8   	83D8
+L83DC   	83DC
+L83E0   	83E0
+L83E4   	83E4
+L83E8   	83E8
+L83EC   	83EC
+L83F4   	83F4
+L84C5   	84C5
+L84C8   	84C8
+L84D1   	84D1
+L84D4   	84D4
+L84D7   	84D7
+L84DA   	84DA
+L84DD   	84DD
+L84E0   	84E0
+L84E3   	84E3
+L84E6   	84E6
+L84E9   	84E9
+L84EC   	84EC
+L84EF   	84EF
+L84F2   	84F2
+L84F5   	84F5
+L84F8   	84F8
+L84FB   	84FB
+L84FE   	84FE
+L8501   	8501
+L8504   	8504
+L850A   	850A
+L850D   	850D
+L8510   	8510
+L8514   	8514
+L8518   	8518
+L851C   	851C
+L8520   	8520
+L8524   	8524
+L8528   	8528
+L852C   	852C
+L8530   	8530
+L8534   	8534
+L8538   	8538
+L853C   	853C
+L8540   	8540
+L8544   	8544
+L8548   	8548
+L854C   	854C
+L8550   	8550
+L8554   	8554
+L8558   	8558
+L855C   	855C
+L8560   	8560
+L8564   	8564
+L8568   	8568
+L856C   	856C
+L8570   	8570
+L8574   	8574
+L8578   	8578
+L857C   	857C
+L8580   	8580
+L8584   	8584
+L8588   	8588
+L858C   	858C
+

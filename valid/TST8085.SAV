@@ -1,0 +1,264 @@
+ 1000  00        NOP              ;.
+ 1001  01 34 12  LXI  B,#$1234    ;.4.
+ 1004  02        STAX B           ;.
+ 1005  03        INX  B           ;.
+ 1006  04        INR  B           ;.
+ 1007  05        DCR  B           ;.
+ 1008  06 11     MVI  B,#$11      ;..
+ 100A  07        RLC              ;.
+ 100B  08        .DB  $08         ;.
+ 100C  09        DAD  B           ;.
+ 100D  0A        LDAX B           ;.
+ 100E  0B        DCX  B           ;.
+ 100F  0C        INR  C           ;.
+ 1010  0D        DCR  C           ;.
+ 1011  0E 11     MVI  C,#$11      ;..
+ 1013  0F        RRC              ;.
+ 1014  10        .DB  $10         ;.
+ 1015  11 34 12  LXI  D,#$1234    ;.4.
+ 1018  12        STAX D           ;.
+ 1019  13        INX  D           ;.
+ 101A  14        INR  D           ;.
+ 101B  15        DCR  D           ;.
+ 101C  16 11     MVI  D,#$11      ;..
+ 101E  17        RAL              ;.
+ 101F  18        .DB  $18         ;.
+ 1020  19        DAD  D           ;.
+ 1021  1A        LDAX D           ;.
+ 1022  1B        DCX  D           ;.
+ 1023  1C        INR  E           ;.
+ 1024  1D        DCR  E           ;.
+ 1025  1E 11     MVI  E,#$11      ;..
+ 1027  1F        RAR              ;.
+ 1028  20        RIM              ; 
+ 1029  21 34 12  LXI  H,#$1234    ;!4.
+ 102C  22 34 12  SHLD L1234       ;"4.
+ 102F  23        INX  H           ;#
+ 1030  24        INR  H           ;$
+ 1031  25        DCR  H           ;%
+ 1032  26 11     MVI  H,#$11      ;&.
+ 1034  27        DAA              ;'
+ 1035  28        .DB  $28         ;(
+ 1036  29        DAD  H           ;)
+ 1037  2A 34 12  LHLD L1234       ;*4.
+ 103A  2B        DCX  H           ;+
+ 103B  2C        INR  L           ;,
+ 103C  2D        DCR  L           ;-
+ 103D  2E 11     MVI  L,#$11      ;..
+ 103F  2F        CMA              ;/
+ 1040  30        SIM              ;0
+ 1041  31 34 12  LXI  SP,#$1234   ;14.
+ 1044  32 34 12  STA  L1234       ;24.
+ 1047  33        INX  SP          ;3
+ 1048  34        INR  M           ;4
+ 1049  35        DCR  M           ;5
+ 104A  36 11     MVI  M,#$11      ;6.
+ 104C  37        STC              ;7
+ 104D  38        .DB  $38         ;8
+ 104E  39        DAD  SP          ;9
+ 104F  3A 34 12  LDA  L1234       ;:4.
+ 1052  3B        DCX  SP          ;;
+ 1053  3C        INR  A           ;<
+ 1054  3D        DCR  A           ;=
+ 1055  3E 11     MVI  A,#$11      ;>.
+ 1057  3F        CMC              ;?
+ 1058  40        MOV  B,B         ;@
+ 1059  41        MOV  B,C         ;A
+ 105A  42        MOV  B,D         ;B
+ 105B  43        MOV  B,E         ;C
+ 105C  44        MOV  B,H         ;D
+ 105D  45        MOV  B,L         ;E
+ 105E  46        MOV  B,M         ;F
+ 105F  47        MOV  B,A         ;G
+ 1060  48        MOV  C,B         ;H
+ 1061  49        MOV  C,C         ;I
+ 1062  4A        MOV  C,D         ;J
+ 1063  4B        MOV  C,E         ;K
+ 1064  4C        MOV  C,H         ;L
+ 1065  4D        MOV  C,L         ;M
+ 1066  4E        MOV  C,M         ;N
+ 1067  4F        MOV  C,A         ;O
+ 1068  50        MOV  D,B         ;P
+ 1069  51        MOV  D,C         ;Q
+ 106A  52        MOV  D,D         ;R
+ 106B  53        MOV  D,E         ;S
+ 106C  54        MOV  D,H         ;T
+ 106D  55        MOV  D,L         ;U
+ 106E  56        MOV  D,M         ;V
+ 106F  57        MOV  D,A         ;W
+ 1070  58        MOV  E,B         ;X
+ 1071  59        MOV  E,C         ;Y
+ 1072  5A        MOV  E,D         ;Z
+ 1073  5B        MOV  E,E         ;[
+ 1074  5C        MOV  E,H         ;\
+ 1075  5D        MOV  E,L         ;]
+ 1076  5E        MOV  E,M         ;^
+ 1077  5F        MOV  E,A         ;_
+ 1078  60        MOV  H,B         ;`
+ 1079  61        MOV  H,C         ;a
+ 107A  62        MOV  H,D         ;b
+ 107B  63        MOV  H,E         ;c
+ 107C  64        MOV  H,H         ;d
+ 107D  65        MOV  H,L         ;e
+ 107E  66        MOV  H,M         ;f
+ 107F  67        MOV  H,A         ;g
+ 1080  68        MOV  L,B         ;h
+ 1081  69        MOV  L,C         ;i
+ 1082  6A        MOV  L,D         ;j
+ 1083  6B        MOV  L,E         ;k
+ 1084  6C        MOV  L,H         ;l
+ 1085  6D        MOV  L,L         ;m
+ 1086  6E        MOV  L,M         ;n
+ 1087  6F        MOV  L,A         ;o
+ 1088  70        MOV  M,B         ;p
+ 1089  71        MOV  M,C         ;q
+ 108A  72        MOV  M,D         ;r
+ 108B  73        MOV  M,E         ;s
+ 108C  74        MOV  M,H         ;t
+ 108D  75        MOV  M,L         ;u
+ 108E  76        HLT              ;v
+ 108F  77        MOV  M,A         ;w
+ 1090  78        MOV  A,B         ;x
+ 1091  79        MOV  A,C         ;y
+ 1092  7A        MOV  A,D         ;z
+ 1093  7B        MOV  A,E         ;{
+ 1094  7C        MOV  A,H         ;|
+ 1095  7D        MOV  A,L         ;}
+ 1096  7E        MOV  A,M         ;~
+ 1097  7F        MOV  A,A         ;.
+ 1098  80        ADD  B           ;.
+ 1099  81        ADD  C           ;.
+ 109A  82        ADD  D           ;.
+ 109B  83        ADD  E           ;.
+ 109C  84        ADD  H           ;.
+ 109D  85        ADD  L           ;.
+ 109E  86        ADD  M           ;.
+ 109F  87        ADD  A           ;.
+ 10A0  88        ADC  B           ;.
+ 10A1  89        ADC  C           ;.
+ 10A2  8A        ADC  D           ;.
+ 10A3  8B        ADC  E           ;.
+ 10A4  8C        ADC  H           ;.
+ 10A5  8D        ADC  L           ;.
+ 10A6  8E        ADC  M           ;.
+ 10A7  8F        ADC  A           ;.
+ 10A8  90        SUB  B           ;.
+ 10A9  91        SUB  C           ;.
+ 10AA  92        SUB  D           ;.
+ 10AB  93        SUB  E           ;.
+ 10AC  94        SUB  H           ;.
+ 10AD  95        SUB  L           ;.
+ 10AE  96        SUB  M           ;.
+ 10AF  97        SUB  A           ;.
+ 10B0  98        SBB  B           ;.
+ 10B1  99        SBB  C           ;.
+ 10B2  9A        SBB  D           ;.
+ 10B3  9B        SBB  E           ;.
+ 10B4  9C        SBB  H           ;.
+ 10B5  9D        SBB  L           ;.
+ 10B6  9E        SBB  M           ;.
+ 10B7  9F        SBB  A           ;.
+ 10B8  A0        ANA  B           ;.
+ 10B9  A1        ANA  C           ;.
+ 10BA  A2        ANA  D           ;.
+ 10BB  A3        ANA  E           ;.
+ 10BC  A4        ANA  H           ;.
+ 10BD  A5        ANA  L           ;.
+ 10BE  A6        ANA  M           ;.
+ 10BF  A7        ANA  A           ;.
+ 10C0  A8        XRA  B           ;.
+ 10C1  A9        XRA  C           ;.
+ 10C2  AA        XRA  D           ;.
+ 10C3  AB        XRA  E           ;.
+ 10C4  AC        XRA  H           ;.
+ 10C5  AD        XRA  L           ;.
+ 10C6  AE        XRA  M           ;.
+ 10C7  AF        XRA  A           ;.
+ 10C8  B0        ORA  B           ;.
+ 10C9  B1        ORA  C           ;.
+ 10CA  B2        ORA  D           ;.
+ 10CB  B3        ORA  E           ;.
+ 10CC  B4        ORA  H           ;.
+ 10CD  B5        ORA  L           ;.
+ 10CE  B6        ORA  M           ;.
+ 10CF  B7        ORA  A           ;.
+ 10D0  B8        CMP  B           ;.
+ 10D1  B9        CMP  C           ;.
+ 10D2  BA        CMP  D           ;.
+ 10D3  BB        CMP  E           ;.
+ 10D4  BC        CMP  H           ;.
+ 10D5  BD        CMP  L           ;.
+ 10D6  BE        CMP  M           ;.
+ 10D7  BF        CMP  A           ;.
+ 10D8  C0        RNZ              ;.
+ 10D9  C1        POP  B           ;.
+ 10DA  C2 34 12  JNZ  L1234       ;.4.
+ 10DD  C3 34 12  JMP  L1234       ;.4.
+ 10E0  C4 34 12  CNZ  L1234       ;.4.
+ 10E3  C5        PUSH B           ;.
+ 10E4  C6 11     ADI  #$11        ;..
+ 10E6  C7        RST  0           ;.
+ 10E7  C8        RZ               ;.
+ 10E8  C9        RET              ;.
+
+ 10E9  CA 34 12  JZ   L1234       ;.4.
+ 10EC  CB        .DB  $CB         ;.
+ 10ED  CC 34 12  CZ   L1234       ;.4.
+ 10F0  CD 34 12  CALL L1234       ;.4.
+ 10F3  CE 11     ACI  #$11        ;..
+ 10F5  CF        RST  1           ;.
+ 10F6  D0        RNC              ;.
+ 10F7  D1        POP  D           ;.
+ 10F8  D2 34 12  JNC  L1234       ;.4.
+ 10FB  D3 11     OUT  D11         ;..
+ 10FD  D4 34 12  CNC  L1234       ;.4.
+ 1100  D5        PUSH D           ;.
+ 1101  D6 11     SUI  #$11        ;..
+ 1103  D7        RST  2           ;.
+ 1104  D8        RC               ;.
+ 1105  D9        .DB  $D9         ;.
+ 1106  DA 34 12  JC   L1234       ;.4.
+ 1109  DB 11     IN   D11         ;..
+ 110B  DC 34 12  CC   L1234       ;.4.
+ 110E  DD        .DB  $DD         ;.
+ 110F  DE 11     SBI  #$11        ;..
+ 1111  DF        RST  3           ;.
+ 1112  E0        RPO              ;.
+ 1113  E1        POP  H           ;.
+ 1114  E2 34 12  JPO  L1234       ;.4.
+ 1117  E3        XTHL             ;.
+ 1118  E4 34 12  CPO  L1234       ;.4.
+ 111B  E5        PUSH H           ;.
+ 111C  E6 11     ANI  #$11        ;..
+ 111E  E7        RST  4           ;.
+ 111F  E8        RPE              ;.
+ 1120  E9        PCHL             ;.
+ 1121  EA 34 12  JPE  L1234       ;.4.
+ 1124  EB        XCHG             ;.
+ 1125  EC 34 12  CPE  L1234       ;.4.
+ 1128  ED        .DB  $ED         ;.
+ 1129  EE 11     XRI  #$11        ;..
+ 112B  EF        RST  5           ;.
+ 112C  F0        RP               ;.
+ 112D  F1        POP  PSW         ;.
+ 112E  F2 34 12  JP   L1234       ;.4.
+ 1131  F3        DI               ;.
+ 1132  F4 34 12  CP   L1234       ;.4.
+ 1135  F5        PUSH PSW         ;.
+ 1136  F6 11     ORI  #$11        ;..
+ 1138  F7        RST  6           ;.
+ 1139  F8        RM               ;.
+ 113A  F9        SPHL             ;.
+ 113B  FA 34 12  JM   L1234       ;.4.
+ 113E  FB        EI               ;.
+ 113F  FC 34 12  CM   L1234       ;.4.
+ 1142  FD        .DB  $FD         ;.
+ 1143  FE 11     CPI  #$11        ;..
+ 1145  FF        RST  7           ;.
+
+
+leftover symbols
+
+D11     	11
+L1234   	1234
+
